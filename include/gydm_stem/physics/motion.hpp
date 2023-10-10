@@ -12,6 +12,8 @@ namespace WarGrey::STEM {
         virtual void on_border(float hoffset, float voffset);
 
     public:
+        void set_acceleration(double acc) { this->set_acceleration(acc, this->get_acceleration_direction(), true); }
+        void add_acceleration(double acc) { this->add_acceleration(acc, this->get_acceleration_direction(), true); }
         void set_acceleration(double acc, double direction, bool is_radian = false);
         void add_acceleration(double acc, double direction, bool is_radian = false);
         double get_acceleration(double* direction = nullptr, double* vx = nullptr, double* vy = nullptr);
@@ -23,6 +25,8 @@ namespace WarGrey::STEM {
         double y_delta_speed() { return this->ay; }
 
     public:
+        void set_velocity(double spd) { this->set_velocity(spd, this->get_velocity_direction(), true); }
+        void add_velocity(double spd) { this->add_velocity(spd, this->get_velocity_direction(), true); }
         void set_velocity(double spd, double direction, bool is_radian = false);
         void add_velocity(double spd, double direction, bool is_radian = false);
         double get_velocity(double* direction = nullptr, double* vx = nullptr, double* vy = nullptr);
@@ -36,8 +40,10 @@ namespace WarGrey::STEM {
     public:
         void set_terminal_velocity(double max_spd, double direction, bool is_radian = false);
         void set_terminal_speed(double mxspd, double myspd);
-        double get_heading(bool need_radian = true) { return this->get_velocity_direction(); }
+        double get_heading(bool need_radian = true) { return this->get_velocity_direction(need_radian); }
+        void set_heading(double dx, double dy);
         void set_heading(double direction, bool is_radian = false);
+        void add_heading(double theta, bool is_radian = false);
         void heading_rotate(double theta, bool is_radian = false);
 
     public:
@@ -64,8 +70,8 @@ namespace WarGrey::STEM {
     private:
         void on_acceleration_changed();
         void check_velocity_changing();
-        void check_heading_changing(double rad);
-        void on_velocity_changed();
+        void check_heading_changing(double rad, bool always_trigger_event);
+        void on_velocity_changed(bool always_trigger_heading_event);
 
     private:
         WarGrey::STEM::BorderStrategy border_strategies[4];

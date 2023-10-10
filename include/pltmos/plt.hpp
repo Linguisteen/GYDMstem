@@ -1,24 +1,15 @@
 #pragma once
 
 #include <gydm_stem/game.hpp>
+#include <gydm_stem/bang.hpp>
 
 namespace WarGrey::PLT {
-    bool is_plt_plane_name(const char* name);
-
-    class ThePLTPlane : public WarGrey::STEM::Plane {
+    class ThePLTPlane : public WarGrey::STEM::TheBigBang {
     public:
-        ThePLTPlane(const char* name);
+        ThePLTPlane(const char* name, uint32_t title_color = 0U);
         virtual ~ThePLTPlane() {}
-
-    public:
-        void load(float width, float height) override;
 
     protected:
         bool update_atlas_position_for_tooltip(WarGrey::STEM::IMatter* m, float x, float y);
-
-    protected:
-        WarGrey::STEM::Linkmon* agent;
-        WarGrey::STEM::Labellet* title;
-        WarGrey::STEM::Labellet* tooltip;
     };
 }
