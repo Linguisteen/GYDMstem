@@ -7,7 +7,7 @@ namespace WarGrey::STEM {
 
     class Bracer : public WarGrey::STEM::Citizen {
     public:
-        Bracer(const char* name);
+        Bracer(const char* name, const char* nickname = nullptr);
         virtual ~Bracer() {}
 
     public:
@@ -47,9 +47,12 @@ namespace WarGrey::STEM {
     /*********************************************************************************************/
     class Estelle : public WarGrey::STEM::Bracer {
     public:
-        Estelle() : Bracer("Estelle") {}
-        const char* name() override { return "Estelle Bright"; }
+        Estelle(const char* nickname = nullptr) : Bracer("Estelle", nickname) {}
         virtual ~Estelle() {}
+
+    public:
+        const char* name() override { return "Estelle Bright"; }
+        WarGrey::STEM::CreatureGender gender() override { return CreatureGender::Female; }
 
     protected:
         void feed_canvas_size(BracerMode mode, float* width, float* height) override;
@@ -57,44 +60,62 @@ namespace WarGrey::STEM {
 
     class Joshua : public WarGrey::STEM::Bracer {
     public:
-        Joshua() : Bracer("Joshua") {}
-        const char* name() override { return "Joshua Bright"; }
+        Joshua(const char* nickname = nullptr) : Bracer("Joshua", nickname) {}
         virtual ~Joshua() {}
+
+    public:
+        const char* name() override { return "Joshua Bright"; }
+        WarGrey::STEM::CreatureGender gender() override { return CreatureGender::Male; }
     };
 
     class Scherazard : public WarGrey::STEM::Bracer {
     public:
-        Scherazard() : Bracer("Scherazard") {}
+        Scherazard(const char* nickname = nullptr) : Bracer("Scherazard", nickname) {}
         const char* name() override { return "Scherazard Harvey"; }
         virtual ~Scherazard() {}
+
+    public:
+        WarGrey::STEM::CreatureGender gender() override { return CreatureGender::Female; }
     };
 
     class Olivier : public WarGrey::STEM::Bracer {
     public:
-        Olivier() : Bracer("Olivier") {}
-        const char* name() override { return "Olivier Lenheim"; }
+        Olivier(const char* nickname = nullptr) : Bracer("Olivier", nickname) {}
         virtual ~Olivier() {}
+
+    public:
+        const char* name() override { return "Olivier Lenheim"; }
+        WarGrey::STEM::CreatureGender gender() override { return CreatureGender::Male; }
     };
 
     class Klose : public WarGrey::STEM::Bracer {
     public:
-        Klose() : Bracer("Klose") {}
-        const char* name() override { return "Klose Rinz"; /* Klaudia von Auslese */ }
+        Klose(const char* nickname = nullptr) : Bracer("Klose", nickname) {}
         virtual ~Klose() {}
+
+    public:
+        const char* name() override { return "Klose Rinz"; /* Klaudia von Auslese */ }
+        WarGrey::STEM::CreatureGender gender() override { return CreatureGender::Female; }
     };
 
     class Agate : public WarGrey::STEM::Bracer {
     public:
-        Agate() : Bracer("Agate") {}
-        const char* name() override { return "Agate Crosner"; }
+        Agate(const char* nickname = nullptr) : Bracer("Agate", nickname) {}
         virtual ~Agate() {}
+
+    public:
+        const char* name() override { return "Agate Crosner"; }
+        WarGrey::STEM::CreatureGender gender() override { return CreatureGender::Male; }
     };
 
     class Tita : public WarGrey::STEM::Bracer {
     public:
-        Tita() : Bracer("Tita") {}
-        const char* name() override { return "Tita Russell"; }
+        Tita(const char* nickname = nullptr) : Bracer("Tita", nickname) {}
         virtual ~Tita() {}
+
+    public:
+        const char* name() override { return "Tita Russell"; }
+        WarGrey::STEM::CreatureGender gender() override { return CreatureGender::Female; }
 
     protected:
         void feed_canvas_size(BracerMode mode, float* width, float* height) override;
@@ -102,9 +123,12 @@ namespace WarGrey::STEM {
 
     class Zin : public WarGrey::STEM::Bracer {
     public:
-        Zin() : Bracer("Zin") {}
-        const char* name() override { return "Zin Vathek"; }
+        Zin(const char* nickname = nullptr) : Bracer("Zin", nickname) {}
         virtual ~Zin() {}
+
+    public:
+        const char* name() override { return "Zin Vathek"; }
+        WarGrey::STEM::CreatureGender gender() override { return CreatureGender::Male; }
 
     protected:
         void feed_canvas_size(BracerMode mode, float* width, float* height) override;

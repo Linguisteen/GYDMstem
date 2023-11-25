@@ -5,6 +5,8 @@
 
 #include "../../../../physics/motion/map2d.hpp"
 
+#include "../creature.hpp"
+
 #include <vector>
 
 /* Protagonists in the RPG 空の軌跡 */
@@ -14,18 +16,24 @@ namespace WarGrey::STEM {
     #define TRAIL_STUDENTS_PATH "trail/Students"
     #define TRAIL_SPECIALS_PATH "trail/Specials"
 
-    class Citizen : public WarGrey::STEM::Sprite, protected WarGrey::STEM::I8WayMotion {
+    class Citizen : public WarGrey::STEM::Sprite, public WarGrey::STEM::ICreature, protected WarGrey::STEM::I8WayMotion {
     public:
         static size_t special_name_count();
         static std::vector<std::string> list_special_names();
-        static Citizen* create_special(const std::string& name) { return Citizen::create_special(name.c_str()); }
-        static Citizen* create_special(const char* name) { return new Citizen(digimon_mascot_path(name, "", TRAIL_SPECIALS_PATH)); }
+        
+        static Citizen* create_special(const std::string& name, const char* nickname = nullptr) {
+            return Citizen::create_special(name.c_str(), nickname);
+        }
+
+        static Citizen* create_special(const char* name, const char* nickname = nullptr) {
+            return new Citizen(digimon_mascot_path(name, "", TRAIL_SPECIALS_PATH), nickname);
+        }
 
     public:
-        Citizen(const std::string& fullpath);
-        Citizen(const std::string& name, const char* rootdir) : Citizen(name.c_str(), rootdir) {}
-        Citizen(const char* name, const char* rootdir);
-        Citizen(size_t seq, const char* rootdir);
+        Citizen(const std::string& fullpath, const char* nickname = nullptr);
+        Citizen(const std::string& name, const char* rootdir, const char* nickname) : Citizen(name.c_str(), rootdir, nickname) {}
+        Citizen(const char* name, const char* rootdir, const char* nickname);
+        Citizen(size_t seq, const char* rootdir, const char* nickname = nullptr);
         virtual ~Citizen() {}
 
     public:
@@ -57,9 +65,9 @@ namespace WarGrey::STEM {
         static TrailKid* randomly_create();
 
     public:
-        TrailKid(const std::string& name) : TrailKid(name.c_str()) {}
-        TrailKid(const char* name);
-        TrailKid(size_t seq);
+        TrailKid(const std::string& name, const char* nickname = nullptr) : TrailKid(name.c_str(), nickname) {}
+        TrailKid(const char* name, const char* nickname = nullptr);
+        TrailKid(size_t seq, const char* nickname = nullptr);
         virtual ~TrailKid() {}
     };
 
@@ -71,9 +79,9 @@ namespace WarGrey::STEM {
         static TrailStudent* randomly_create();
 
     public:
-        TrailStudent(const std::string& name) : TrailStudent(name.c_str()) {}
-        TrailStudent(const char* name);
-        TrailStudent(size_t seq);
+        TrailStudent(const std::string& name, const char* nickname = nullptr) : TrailStudent(name.c_str(), nickname) {}
+        TrailStudent(const char* name, const char* nickname = nullptr);
+        TrailStudent(size_t seq, const char* nickname = nullptr);
         virtual ~TrailStudent() {}
     };
 }
