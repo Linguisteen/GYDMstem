@@ -22,10 +22,11 @@
 
 #include "graphics/colorspace.hpp"
 #include "graphics/named_colors.hpp"
-#include "graphics/geometry.hpp"
 #include "graphics/font.hpp"
 #include "graphics/text.hpp"
 #include "graphics/texture.hpp"
+#include "graphics/brush.hpp"
+#include "graphics/ruler.hpp"
 
 #include "matter/atlas.hpp"
 #include "matter/continent.hpp"
@@ -33,12 +34,13 @@
 #include "matter/sprite/folder.hpp"
 #include "matter/sprite/sheet.hpp"
 
-#include "matter/sprite/mascot/atlas/mario.hpp"
-#include "matter/sprite/mascot/atlas/planetcute.hpp"
-#include "matter/sprite/mascot/agent/linkmon.hpp"
 #include "matter/sprite/mascot/tuxmon.hpp"
 #include "matter/sprite/mascot/coinlet.hpp"
 #include "matter/sprite/mascot/character.hpp"
+#include "matter/sprite/mascot/creature.hpp"
+#include "matter/sprite/mascot/atlas/mario.hpp"
+#include "matter/sprite/mascot/atlas/planetcute.hpp"
+#include "matter/sprite/mascot/agent/linkmon.hpp"
 
 #include "matter/graphlet.hpp"
 #include "matter/graphlet/textlet.hpp"
@@ -46,7 +48,6 @@
 #include "matter/graphlet/tracklet.hpp"
 #include "matter/graphlet/dimensionlet.hpp"
 #include "matter/graphlet/plot/historylet.hpp"
-#include "matter/graphlet/sketch/conveyerlet.hpp"
 
 #include "physics/random.hpp"
 #include "physics/mathematics.hpp"
