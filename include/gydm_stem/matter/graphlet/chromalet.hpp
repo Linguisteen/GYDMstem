@@ -1,7 +1,7 @@
 #pragma once
 
-#include "../../canvaslet.hpp"
-#include "../../../graphics/colorspace.hpp"
+#include "../canvaslet.hpp"
+#include "../../graphics/colorspace.hpp"
 
 namespace WarGrey::STEM {
     class Chromalet : public WarGrey::STEM::ICanvaslet {
