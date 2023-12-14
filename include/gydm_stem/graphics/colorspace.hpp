@@ -23,6 +23,7 @@ namespace WarGrey::STEM {
 
     unsigned char color_component_to_byte(double com);
     unsigned char color_component_clamp_to_byte(double com);
+    unsigned char color_component_clamp_to_byte(int com);
     
     unsigned int RGB_Contrast(unsigned int hex);
     unsigned int RGB_Contrast_For_Background(unsigned int hex);
