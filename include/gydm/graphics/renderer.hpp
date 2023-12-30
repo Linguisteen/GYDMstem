@@ -1,0 +1,26 @@
+#pragma once
+
+#include <SDL2/SDL.h>
+
+namespace GYDM {
+    enum class ColorMixture {
+        None = SDL_BLENDMODE_NONE,
+        Add = SDL_BLENDMODE_ADD,
+
+        // The following two are identical
+        Subtract = SDL_BLENDMODE_MUL,
+        Multiply = SDL_BLENDMODE_MUL,
+        
+        Modulate = SDL_BLENDMODE_MOD,
+        Alpha = SDL_BLENDMODE_BLEND
+    };
+
+    /*********************************************************************************************/
+    inline SDL_BlendMode color_mixture_to_blend_mode(GYDM::ColorMixture mixture) { return static_cast<SDL_BlendMode>(mixture); }
+    inline ColorMixture blend_mode_to_color_mixture(SDL_BlendMode mode) { return static_cast<ColorMixture>(mode); }
+
+    /*********************************************************************************************/
+    SDL_RendererFlip game_scales_to_flip(float x_scale, float y_scale);
+    void game_flip_to_signs(SDL_RendererFlip flip, float* hsgn = nullptr, float* vsgn = nullptr);
+    void game_flip_to_signs(SDL_RendererFlip flip, double* hsgn = nullptr, double* vsgn = nullptr);
+}
