@@ -7,9 +7,9 @@
 #include <vector>
 
 namespace WarGrey::STEM {
-    class ChromaticityDiagramPlane : public WarGrey::STEM::TheSCSMPlane {
+    class ChromaticityDiagramPlane : public WarGrey::STEM::TheSTEMPlane {
     public:
-        ChromaticityDiagramPlane() : TheSCSMPlane("色度图", 0xFFFFFFU) {}
+        ChromaticityDiagramPlane() : TheSTEMPlane("色度图", 0xFFFFFFU) {}
         virtual ~ChromaticityDiagramPlane() {}
         
     public:

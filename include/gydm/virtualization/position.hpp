@@ -9,6 +9,9 @@
 namespace GYDM {
     class Position {
     public:
+        static const GYDM::Position O;
+
+    public:
         Position() : Position(0.0F, 0.0F) {}
         Position(float x, float y) : dot(x, y) {}
         Position(const GYDM::Dot& dot) : Position(dot.x, dot.y) {}
@@ -45,6 +48,4 @@ namespace GYDM {
         const GYDM::IMatter* ytarget = nullptr;
         GYDM::Vector offset;
     };
-
-    static const Position origin_position;
 }
